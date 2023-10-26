@@ -4,8 +4,9 @@ import { Container, Row, Col } from 'react-bootstrap'
 //Import components
 import Navbar from './components/NavBar';
 //import pages
-
 import Home from './pages/Home';
+import SingleCountry from './pages/SingleCountry';
+
 function App() {
   return (
     <Router>
@@ -15,6 +16,7 @@ function App() {
           <Col>
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/country/:name' element={<SingleCountry />} />
             </Routes>
           </Col>
         </Row>
