@@ -12,7 +12,6 @@ const NavBar = () => {
                 <Link to={`/`}><NavbarClass.Brand>Rest Countries
                 </NavbarClass.Brand>
                 </Link>
-                <NavbarClass.Toggle aria-controls="basic-navbar-nav" />
                 <Nav.Link>
                     <Link to={`/`}>Home</Link>
                 </Nav.Link>
