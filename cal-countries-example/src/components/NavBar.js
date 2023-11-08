@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import { Container, Nav } from 'react-bootstrap';
 import NavbarClass from 'react-bootstrap/Navbar';
+import Searchbar from './SearchBar';
 
 
 
-const Navbar = () => {
+const NavBar = () => {
     return (
         <NavbarClass expand="lg" className="bg-body-tertiary">
             <Container>
@@ -15,10 +16,10 @@ const Navbar = () => {
                 <Nav.Link>
                     <Link to={`/`}>Home</Link>
                 </Nav.Link>
-
+            <Searchbar/>
             </Container>
 
         </NavbarClass>
     )
 }
-export default Navbar
+export default NavBar

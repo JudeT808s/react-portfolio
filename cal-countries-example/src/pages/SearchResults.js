@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Row } from 'react-bootstrap'
 import CountryCard from '../components/CountryCard';
+import { useParams } from 'react-router-dom';
 
-const Home = () => {
+
+const SearchResults = () => {
+    let { input } = useParams();
     const [countriesList, setCountriesList] = useState([]);
- 
     useEffect(() => {
-        axios.get('https://restcountries.com/v3.1/all')
+        axios.get(`https://restcountries.com/v3.1/name/${input}`)
             .then(response => {
                 console.log(response.data)
                 setCountriesList(response.data);
@@ -17,7 +19,6 @@ const Home = () => {
                 console.error(error);
             })
     }, []);
-
     let countryCards = countriesList.map((country, i) => {
         return <CountryCard key={i} flag={country.flags.png} name={country.name.common} region={country.region} />
     })
@@ -27,5 +28,8 @@ const Home = () => {
         </Row>
 
     )
+
+
+
 }
-export default Home
+export default SearchResults
