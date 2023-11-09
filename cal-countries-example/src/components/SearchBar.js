@@ -9,16 +9,15 @@ const Searchbar = () => {
         setInput(e.target.value);
     };
 
-    // const handleSearch = () => {
-    //      <Link to={`/search/${input}`} />;
-    // };
+    const handleSearch = () => {
+         <Link to={`/search/${input}`} />;
+    };
 
     const handleKeyUp = (e) => {
         if (e.key === 'Enter') {
-            <Link to={`/search/${input}`}></Link>
+            handleSearch()
         }
     };
-    window.location.hash = '';
 
     return (
         <Row>
@@ -33,7 +32,6 @@ const Searchbar = () => {
                 />
             </Col>
             <Col xs="auto">
-
                 <Link to={`/search/${input}`}>
                     <Button>Search</Button>
                 </Link>

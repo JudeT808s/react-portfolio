@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { Container, Nav } from 'react-bootstrap';
 import NavbarClass from 'react-bootstrap/Navbar';
 import Searchbar from './SearchBar';
+import RegionDropdown from './RegionDropdown';
 
 
 
@@ -12,10 +13,10 @@ const NavBar = () => {
                 <Link to={`/`}><NavbarClass.Brand>Rest Countries
                 </NavbarClass.Brand>
                 </Link>
+                <Searchbar />
                 <Nav.Link>
-                    <Link to={`/`}>Home</Link>
+                    <RegionDropdown/>
                 </Nav.Link>
-            <Searchbar/>
             </Container>
 
         </NavbarClass>

@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, Dropdown } from 'react-bootstrap';
+import { Button, ButtonGroup, DropdownButton, Dropdown } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
@@ -22,31 +22,24 @@ const RegionDropdown = () => {
     let regions = countriesList.map((country) => {
         return country.region;
     });
-    //wtf
     let uniqueRegions = new Set(regions);
     let list = Array.from(uniqueRegions);
     window.location.hash = '';
 
     return (
         //  console.log(list)
-        <Dropdown as={ButtonGroup}>
-            <Button variant="success">Split Button</Button>
-
-            <Dropdown.Toggle split variant="success" id="dropdown-split-basic" />
-
-        <Dropdown.Menu>
+        <DropdownButton id="dropdown-item-button" title="Region" variant="success">
             {list.map(region => (
-                <Dropdown.Item>
-                    <Link  to={`/filter/${region}`}>
+                <Link to={`/filter/${region}`}>
+                    <Dropdown.Item as="button" key={region}>
                         {region}
-                    </Link>
-                </Dropdown.Item>
+                    </Dropdown.Item>
+                </Link>
                 // <Dropdown.Item key={region} Link={`#/action-${region}`}>
                 //     {region}
                 // </Dropdown.Item>
             ))}
-        </Dropdown.Menu>
-        </Dropdown>
+        </DropdownButton>
     )
 }
 export default RegionDropdown
